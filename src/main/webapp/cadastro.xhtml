@@ -1,0 +1,60 @@
+
+<html  lang="pt-br"
+		xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8"></meta>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"></link>
+</h:head>
+
+<h:body>
+
+		<div class="container mt-5">
+			<div class="row">
+				<div class="md-col-4 offset-4">
+					<div class="card">
+						<article class="card-body">
+							<h4 class="card-title text-center mb-4 mt-1">Login</h4>
+							<hr></hr>
+							<p:messages id="messages" />
+							<h:form>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+										</div>
+										<p:inputText name="email" class="form-control" placeholder="Email" type="email"
+													 value="#{usuarioBean.usuario.email}"></p:inputText>
+									</div> <!-- input-group.// -->
+								</div> <!-- form-group// -->
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+										</div>
+										<p:inputText class="form-control" name="senha" placeholder="******" type="password"
+													 value="#{usuarioBean.usuario.senha}"></p:inputText>
+									</div> <!-- input-group.// -->
+								</div> <!-- form-group// -->
+								<div class="form-group">
+									<p:commandButton value="Enviar"
+													 class="btn btn-primary btn-block" action="#{usuarioBean.login}" ajax="false">
+									</p:commandButton>
+								</div> <!-- form-group// -->
+								<p class="text-center"><a href="#" class="btn">Fazer cadastro</a></p>
+							</h:form>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+</h:body>
+</html>
