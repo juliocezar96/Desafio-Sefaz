@@ -11,9 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor //cria automaticamente um construtor com todas os atributos da classe como argumento.
-@NoArgsConstructor //cria automaticamente um construtor vazio (sem argumentos).
-@Data //cria automaticamente os métodos toString, equals, hashCode, getters e setters.
+
 @Entity
 public class Usuario implements Serializable {
 
@@ -30,6 +28,46 @@ public class Usuario implements Serializable {
     private List<Telefone> telefones;
 
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
+    }
 
 
 }

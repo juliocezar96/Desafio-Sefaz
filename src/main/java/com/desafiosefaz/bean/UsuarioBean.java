@@ -69,6 +69,11 @@ public class UsuarioBean {
         return "/login.jsf";
     }
 
+    public List<Usuario> getTodosUsuarios(){
+        List<Usuario> usuarios = usuarioService.getTodosUsuarios();
+        return usuarios;
+    }
+
 
 
     public Usuario getUsuario() {

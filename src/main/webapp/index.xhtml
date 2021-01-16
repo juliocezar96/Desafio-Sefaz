@@ -2,7 +2,8 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <meta charset="utf-8"></meta>
@@ -19,11 +20,36 @@
         <div class="container mt-5">
             <div class="row">
 
-                <div class="col-md-8 offset-2">
+                <div class="col-md-12">
                     <div class="card">
                         <article class="card-body">
                             <h4 class="card-title text-center mb-4 mt-1">Usuarios </h4>
                             <hr></hr>
+                            <p:dataTable var="usuario" value="#{usuarioBean.todosUsuarios}">
+                                <p:column headerText="Nome">
+                                    <h:outputText value="#{usuario.nome}"/>
+                                </p:column>
+
+                                <p:column headerText="Email">
+                                    <h:outputText value="#{usuario.email}"/>
+                                </p:column>
+                                <p:column headerText="DDD">
+                                    <ui:repeat var="telefone" value="#{usuario.telefones}" >
+                                        <h:outputText value="#{telefone.ddd}"/><br></br>
+                                    </ui:repeat>
+                                </p:column>
+                                <p:column headerText="Numero">
+                                    <ui:repeat var="telefone" value="#{usuario.telefones}" >
+                                        <h:outputText value="#{telefone.numero}"/><br></br>
+                                    </ui:repeat>
+                                </p:column>
+                                <p:column headerText="Tipo">
+                                    <ui:repeat var="telefone" value="#{usuario.telefones}" >
+                                        <h:outputText value="#{telefone.tipo}"/><br></br>
+                                    </ui:repeat>
+                                </p:column>
+
+                            </p:dataTable>
                         </article>
                     </div>
                 </div>

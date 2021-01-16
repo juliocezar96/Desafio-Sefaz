@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,5 +32,10 @@ public class UsuarioService {
         u.getTelefones().forEach(telefone -> telefone.setUsuario(u));
         telefoneRepository.saveAll(u.getTelefones());
         return u;
+    }
+
+    public List<Usuario> getTodosUsuarios(){
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return  usuarios;
     }
 }
