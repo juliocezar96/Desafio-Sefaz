@@ -3,8 +3,11 @@ package com.desafiosefaz.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -15,7 +18,7 @@ public class Telefone implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int ddd;
+    private Integer ddd;
     private String numero;
     private String tipo;
     @ManyToOne
@@ -30,11 +33,11 @@ public class Telefone implements Serializable {
         this.id = id;
     }
 
-    public int getDdd() {
+    public Integer getDdd() {
         return ddd;
     }
 
-    public void setDdd(int ddd) {
+    public void setDdd(Integer ddd) {
         this.ddd = ddd;
     }
 

@@ -30,7 +30,9 @@
 											<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 										</div>
 										<p:inputText name="email" class="form-control" placeholder="Email" type="email"
-													 value="#{usuarioBean.usuario.email}"></p:inputText>
+													 required="true" requiredMessage="Campo Email obrigatório" value="#{usuarioBean.usuario.email}">
+
+										</p:inputText>
 									</div> <!-- input-group.// -->
 								</div> <!-- form-group// -->
 								<div class="form-group">
@@ -39,7 +41,7 @@
 											<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 										</div>
 										<p:inputText class="form-control" name="senha" placeholder="******" type="password"
-													 value="#{usuarioBean.usuario.senha}"></p:inputText>
+													 required="true" requiredMessage="Campo Senha obrigatório" value="#{usuarioBean.usuario.senha}"></p:inputText>
 									</div> <!-- input-group.// -->
 								</div> <!-- form-group// -->
 								<div class="form-group">
