@@ -22,9 +22,8 @@ public class UsuarioService {
         Optional<Usuario> usuario = usuarioRepository.findByEmailAndSenha(email,senha);
         if(usuario.isPresent()){
             return usuario.get();
-        }else{
-            return null;
         }
+        return null;
 
     }
     public Usuario cadastrar (Usuario usuario){
@@ -34,8 +33,33 @@ public class UsuarioService {
         return u;
     }
 
+    public Usuario atualizar (Usuario usuario){
+
+        Usuario u = usuarioRepository.save(usuario);
+        telefoneRepository.saveAll(usuario.getTelefones());
+
+        Optional<Usuario> user = usuarioRepository.findById(usuario.getId());
+        if(user.isPresent()){
+            return user.get();
+        }
+        return null;
+    }
+
     public List<Usuario> getTodosUsuarios(){
         List<Usuario> usuarios = usuarioRepository.findAll();
         return  usuarios;
+    }
+
+    public Usuario getUsuario(Long id){
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        if(usuario.isPresent()){
+            return  usuario.get();
+        }
+        return null;
+
+    }
+
+    public void deletar(Usuario usuario) {
+        usuarioRepository.delete(usuario);
     }
 }

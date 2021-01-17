@@ -34,21 +34,28 @@
                                     <h:outputText value="#{usuario.email}"/>
                                 </p:column>
                                 <p:column headerText="DDD">
-                                    <ui:repeat var="telefone" value="#{usuario.telefones}" >
-                                        <h:outputText value="#{telefone.ddd}"/><br></br>
+                                    <ui:repeat var="telefone" value="#{usuario.telefones}">
+                                        <h:outputText value="#{telefone.ddd}"/>
+                                        <br></br>
                                     </ui:repeat>
                                 </p:column>
                                 <p:column headerText="Numero">
-                                    <ui:repeat var="telefone" value="#{usuario.telefones}" >
-                                        <h:outputText value="#{telefone.numero}"/><br></br>
+                                    <ui:repeat var="telefone" value="#{usuario.telefones}">
+                                        <h:outputText value="#{telefone.numero}"/>
+                                        <br></br>
                                     </ui:repeat>
                                 </p:column>
                                 <p:column headerText="Tipo">
-                                    <ui:repeat var="telefone" value="#{usuario.telefones}" >
-                                        <h:outputText value="#{telefone.tipo}"/><br></br>
+                                    <ui:repeat var="telefone" value="#{usuario.telefones}">
+                                        <h:outputText value="#{telefone.tipo}"/>
+                                        <br></br>
                                     </ui:repeat>
                                 </p:column>
-
+                                <p:column style="text-align:center">
+                                    <p:commandButton
+                                             action="#{usuarioBean.editar(usuario.id)}" value="Editar">
+                                    </p:commandButton>
+                                </p:column>
                             </p:dataTable>
                         </article>
                     </div>

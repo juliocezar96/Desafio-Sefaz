@@ -2,7 +2,8 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <meta charset="utf-8"></meta>
@@ -14,7 +15,7 @@
 </h:head>
 
 <h:body>
-    <h:form>
+    <h:form id="form1">
 
         <div class="container mt-5">
             <div class="row">
@@ -22,7 +23,7 @@
                 <div class="col-md-6 offset-3">
                     <div class="card">
                         <article class="card-body">
-                            <h4 class="card-title text-center mb-4 mt-1">Login</h4>
+                            <h4 class="card-title text-center mb-4 mt-1">Atualizar</h4>
                             <hr></hr>
                             <p:messages id="messages"/>
                             <div class="form-group">
@@ -53,50 +54,67 @@
                                 </div> <!-- input-group.// -->
                             </div> <!-- form-group// -->
 
+                            <ui:repeat var="telefone" value="#{usuarioBean.usuario.telefones}">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <div class="input-group">
+
+                                                <p:inputText class="form-control" name="ddd"  type="number" placeholder="ddd"
+                                                             value="#{telefone.ddd}"></p:inputText>
+                                            </div> <!-- input-group.// -->
+                                        </div> <!-- form-group// -->
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <div class="input-group">
+
+                                                <p:inputText class="form-control" name="numero" placeholder="Numero"
+                                                             value="#{telefone.numero}"></p:inputText>
+                                            </div> <!-- input-group.// -->
+                                        </div> <!-- form-group// -->
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <div class="input-group">
+
+                                                <p:inputText class="form-control" name="tipo" placeholder="Tipo"
+                                                             value="#{telefone.tipo}"></p:inputText>
+                                            </div> <!-- input-group.// -->
+                                        </div> <!-- form-group// -->
+                                    </div>
+                                </div>
+                            </ui:repeat>
+
+
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <div class="input-group">
-
-                                            <p:inputText class="form-control" name="ddd"  type="number" placeholder="ddd"
-                                                         value="#{usuarioBean.telefone.ddd}"></p:inputText>
-                                        </div> <!-- input-group.// -->
-                                    </div> <!-- form-group// -->
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <div class="input-group">
-
-                                            <p:inputText class="form-control" name="numero" placeholder="Numero"
-                                                         value="#{usuarioBean.telefone.numero}"></p:inputText>
-                                        </div> <!-- input-group.// -->
-                                    </div> <!-- form-group// -->
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <div class="input-group">
-
-                                            <p:inputText class="form-control" name="tipo" placeholder="Tipo"
-                                                         value="#{usuarioBean.telefone.tipo}"></p:inputText>
-                                        </div> <!-- input-group.// -->
-                                    </div> <!-- form-group// -->
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2 offset-6">
-                                    <div class="form-group">
                                         <p:commandButton value="Voltar"
-                                                         class="btn btn btn-link" action="#{usuarioBean.login}"
+                                                         class="btn btn btn-link" action="/index.jsf"
                                                          ajax="false">
                                         </p:commandButton>
                                     </div> <!-- form-group// -->
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3 offset-4">
                                     <div class="form-group">
-                                        <p:commandButton value="Enviar"
-                                                         class="btn btn-primary btn-block" action="#{usuarioBean.cadastrar}"
+                                        <p:commandButton value="Salvar"
+                                                         class="btn btn-primary btn-block" action="#{usuarioBean.atualizar}"
                                                          ajax="false">
                                         </p:commandButton>
+                                    </div> <!-- form-group// -->
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <p:commandButton value="Deletar"
+                                                         class="btn btn-danger btn-block"  type="button" onclick="PF('cnfDlg').show()"
+                                                         >
+                                        </p:commandButton>
+
+                                        <p:confirmDialog widgetVar="cnfDlg" header="Confirmation" message="Tem certeza que deseja excluir?" >
+                                            <p:commandButton value="Yes" action="#{usuarioBean.deletar}" oncomplete="cnfDlg.hide();" update="form1"/>
+                                            <p:commandButton value="No" onclick="cnfDlg.hide();"/>
+                                        </p:confirmDialog>
                                     </div> <!-- form-group// -->
                                 </div>
                             </div>

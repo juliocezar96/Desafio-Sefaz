@@ -20,10 +20,8 @@ import java.util.List;
 @ViewScoped
 public class UsuarioBean {
 
-    public UsuarioBean (){
-        this.usuario = new Usuario();
-    }
-    private Usuario usuario;
+
+    private Usuario usuario = new Usuario();
 
     public Telefone getTelefone() {
         return telefone;
@@ -42,6 +40,7 @@ public class UsuarioBean {
         Usuario usuario = usuarioService.login(getUsuario().getEmail(),getUsuario().getSenha());
 
         if (usuario == null) {
+
             FacesContext.getCurrentInstance().addMessage(
                     null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!",
@@ -56,6 +55,7 @@ public class UsuarioBean {
     public String cadastrar (){
 
         this.usuario.setTelefones(Arrays.asList(telefone));
+        this.usuario.setId(null);
         Usuario usuario = usuarioService.cadastrar(this.usuario);
         if (usuario == null) {
             FacesContext.getCurrentInstance().addMessage(
@@ -68,10 +68,26 @@ public class UsuarioBean {
         setUsuario(new Usuario());
         return "/login.jsf";
     }
-
+    public String deletar(){
+        usuarioService.deletar(this.usuario);
+        return "/index.jsf";
+    }
     public List<Usuario> getTodosUsuarios(){
         List<Usuario> usuarios = usuarioService.getTodosUsuarios();
         return usuarios;
+    }
+
+    public String editar(Long id){
+        Usuario usuario = usuarioService.getUsuario(id);
+        if(usuario==null){
+            return "/index.jsf";
+        }
+        setUsuario(usuario);
+        return "/editar.jsf";
+    }
+    public String atualizar(){
+        usuarioService.atualizar(this.usuario);
+        return "/index.jsf";
     }
 
 

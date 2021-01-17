@@ -24,7 +24,7 @@ public class Usuario implements Serializable {
     private String nome;
     private String email;
     private String senha;
-    @OneToMany(mappedBy = "usuario",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,mappedBy = "usuario",fetch = FetchType.EAGER)
     private List<Telefone> telefones;
 
 
