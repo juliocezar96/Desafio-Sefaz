@@ -31,7 +31,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                                     </div>
-                                    <p:inputText name="nome" class="form-control" placeholder="Nome"
+                                    <p:inputText name="nome" class="form-control" placeholder="Nome"  requiredMessage="Campo nome obrigatório"   required="true"
                                                  value="#{usuarioBean.usuario.nome}"></p:inputText>
                                 </div> <!-- input-group.// -->
                             </div>
@@ -40,7 +40,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                                     </div>
-                                    <p:inputText name="email" class="form-control" placeholder="Email" type="email"
+                                    <p:inputText name="email" class="form-control" placeholder="Email" type="email"  requiredMessage="Campo email obrigatório"   required="true"
                                                  value="#{usuarioBean.usuario.email}"></p:inputText>
                                 </div> <!-- input-group.// -->
                             </div> <!-- form-group// -->
@@ -49,7 +49,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                     </div>
-                                    <p:inputText class="form-control" name="senha" placeholder="******" type="password"
+                                    <p:inputText class="form-control" name="senha" placeholder="******" type="password"  requiredMessage="Campo senha obrigatório"   required="true"
                                                  value="#{usuarioBean.usuario.senha}"></p:inputText>
                                 </div> <!-- input-group.// -->
                             </div> <!-- form-group// -->
@@ -60,7 +60,7 @@
                                         <div class="form-group">
                                             <div class="input-group">
 
-                                                <p:inputText class="form-control" name="ddd"  type="number" placeholder="ddd"
+                                                <p:inputText class="form-control" name="ddd"  type="number" placeholder="ddd"  requiredMessage="Campo DDD obrigatório"   required="true"
                                                              value="#{telefone.ddd}"></p:inputText>
                                             </div> <!-- input-group.// -->
                                         </div> <!-- form-group// -->
@@ -69,7 +69,7 @@
                                         <div class="form-group">
                                             <div class="input-group">
 
-                                                <p:inputText class="form-control" name="numero" placeholder="Numero"
+                                                <p:inputText class="form-control" name="numero" placeholder="Numero"  requiredMessage="Campo numero obrigatório"   required="true"
                                                              value="#{telefone.numero}"></p:inputText>
                                             </div> <!-- input-group.// -->
                                         </div> <!-- form-group// -->
@@ -78,7 +78,7 @@
                                         <div class="form-group">
                                             <div class="input-group">
 
-                                                <p:inputText class="form-control" name="tipo" placeholder="Tipo"
+                                                <p:inputText class="form-control" name="tipo" placeholder="Tipo"  requiredMessage="Campo tipo obrigatório"   required="true"
                                                              value="#{telefone.tipo}"></p:inputText>
                                             </div> <!-- input-group.// -->
                                         </div> <!-- form-group// -->

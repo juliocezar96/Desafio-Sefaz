@@ -20,8 +20,10 @@ import java.util.List;
 @ViewScoped
 public class UsuarioBean {
 
-
-    private Usuario usuario = new Usuario();
+    public UsuarioBean(){
+        this.usuario = new Usuario();
+    }
+    private Usuario usuario ;
 
     public Telefone getTelefone() {
         return telefone;
@@ -60,13 +62,14 @@ public class UsuarioBean {
         if (usuario == null) {
             FacesContext.getCurrentInstance().addMessage(
                     null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao cadastrar!",
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario já cadastrado.",
                             ""));
             return null;
         }
 
         setUsuario(new Usuario());
-        return "/login.jsf";
+        setTelefone(new Telefone());
+        return "/index.jsf";
     }
     public String deletar(){
         usuarioService.deletar(this.usuario);

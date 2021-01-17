@@ -27,6 +27,9 @@ public class UsuarioService {
 
     }
     public Usuario cadastrar (Usuario usuario){
+        if(existeUsuario(usuario.getEmail())){
+            return null;
+        }
         Usuario u = usuarioRepository.save(usuario);
         u.getTelefones().forEach(telefone -> telefone.setUsuario(u));
         telefoneRepository.saveAll(u.getTelefones());
@@ -56,6 +59,12 @@ public class UsuarioService {
             return  usuario.get();
         }
         return null;
+
+    }
+    public Boolean existeUsuario(String email){
+        Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
+        return usuario.isPresent();
+
 
     }
 

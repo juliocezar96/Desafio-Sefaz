@@ -24,6 +24,14 @@
                     <div class="card">
                         <article class="card-body">
                             <h4 class="card-title text-center mb-4 mt-1">Usuarios </h4>
+                            <div>
+                                <div>
+                                    <p:commandButton value="Cadastrar Usuario" style="margin-top: -55px;"
+                                                     class="btn btn-primary" action="/cadastro.jsf"
+                                                     ajax="false">
+                                    </p:commandButton>
+                                </div> <!-- form-group// -->
+                            </div>
                             <hr></hr>
                             <p:dataTable var="usuario" value="#{usuarioBean.todosUsuarios}">
                                 <p:column headerText="Nome">
