@@ -10,7 +10,7 @@
 
 • Technologies usada no projeto:
 
-- [Java J2EE/Java EE e Frameworks](https://www.oracle.com/java/technologies/)
+- [Java J2EE/Java EE](https://www.oracle.com/java/technologies/)
 - [Springboot](https://spring.io/projects/spring-boot)
 - [JPA](https://spring.io/projects/spring-data-jpa)
 - [H2](https://www.h2database.com/html/main.html)
