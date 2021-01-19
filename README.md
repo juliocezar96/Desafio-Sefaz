@@ -11,7 +11,11 @@
 • Technologies usada no projeto:
 
 - [Java J2EE/Java EE e Frameworks](https://www.oracle.com/java/technologies/)
-- [PrimeFaces e frameworks](https://www.primefaces.org/)
+- [Springboot](https://spring.io/projects/spring-boot)
+- [JPA](https://spring.io/projects/spring-data-jpa)
+- [H2](https://www.h2database.com/html/main.html)
+
+- [JSF/PrimeFaces](https://www.primefaces.org/)
 
 • Testado com:
 
