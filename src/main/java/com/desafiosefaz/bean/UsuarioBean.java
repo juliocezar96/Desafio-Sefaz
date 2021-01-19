@@ -20,10 +20,11 @@ import java.util.List;
 @ViewScoped
 public class UsuarioBean {
 
-    public UsuarioBean(){
+    public UsuarioBean() {
         this.usuario = new Usuario();
     }
-    private Usuario usuario ;
+
+    private Usuario usuario;
 
     public Telefone getTelefone() {
         return telefone;
@@ -37,9 +38,9 @@ public class UsuarioBean {
     @Autowired
     private UsuarioService usuarioService;
 
-    public String login(){
+    public String login() {
 
-        Usuario usuario = usuarioService.login(getUsuario().getEmail(),getUsuario().getSenha());
+        Usuario usuario = usuarioService.login(getUsuario().getEmail(), getUsuario().getSenha());
 
         if (usuario == null) {
 
@@ -54,7 +55,8 @@ public class UsuarioBean {
         return "/index.jsf";
 
     }
-    public String cadastrar (){
+
+    public String cadastrar() {
 
         this.usuario.setTelefones(Arrays.asList(telefone));
         this.usuario.setId(null);
@@ -71,28 +73,30 @@ public class UsuarioBean {
         setTelefone(new Telefone());
         return "/index.jsf";
     }
-    public String deletar(){
+
+    public String deletar() {
         usuarioService.deletar(this.usuario);
         return "/index.jsf";
     }
-    public List<Usuario> getTodosUsuarios(){
+
+    public List<Usuario> getTodosUsuarios() {
         List<Usuario> usuarios = usuarioService.getTodosUsuarios();
         return usuarios;
     }
 
-    public String editar(Long id){
+    public String editar(Long id) {
         Usuario usuario = usuarioService.getUsuario(id);
-        if(usuario==null){
+        if (usuario == null) {
             return "/index.jsf";
         }
         setUsuario(usuario);
         return "/editar.jsf";
     }
-    public String atualizar(){
+
+    public String atualizar() {
         usuarioService.atualizar(this.usuario);
         return "/index.jsf";
     }
-
 
 
     public Usuario getUsuario() {

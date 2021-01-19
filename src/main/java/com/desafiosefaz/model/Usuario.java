@@ -1,10 +1,6 @@
 package com.desafiosefaz.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -24,9 +20,8 @@ public class Usuario implements Serializable {
     private String nome;
     private String email;
     private String senha;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,mappedBy = "usuario",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Telefone> telefones;
-
 
 
     public Long getId() {

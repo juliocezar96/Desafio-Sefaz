@@ -38,6 +38,6 @@ public class Config implements CommandLineRunner {
         telefone1.setUsuario(usuario);
 
         usuarioRepository.save(usuario);
-        telefoneRepository.saveAll(Arrays.asList(telefone,telefone1));
+        telefoneRepository.saveAll(Arrays.asList(telefone, telefone1));
     }
 }

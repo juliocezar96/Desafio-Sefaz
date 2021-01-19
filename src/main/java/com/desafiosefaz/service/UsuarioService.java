@@ -18,16 +18,17 @@ public class UsuarioService {
     @Autowired
     private TelefoneRepository telefoneRepository;
 
-    public Usuario login (String email, String senha){
-        Optional<Usuario> usuario = usuarioRepository.findByEmailAndSenha(email,senha);
-        if(usuario.isPresent()){
+    public Usuario login(String email, String senha) {
+        Optional<Usuario> usuario = usuarioRepository.findByEmailAndSenha(email, senha);
+        if (usuario.isPresent()) {
             return usuario.get();
         }
         return null;
 
     }
-    public Usuario cadastrar (Usuario usuario){
-        if(existeUsuario(usuario.getEmail())){
+
+    public Usuario cadastrar(Usuario usuario) {
+        if (existeUsuario(usuario.getEmail())) {
             return null;
         }
         Usuario u = usuarioRepository.save(usuario);
@@ -36,32 +37,33 @@ public class UsuarioService {
         return u;
     }
 
-    public Usuario atualizar (Usuario usuario){
+    public Usuario atualizar(Usuario usuario) {
 
         Usuario u = usuarioRepository.save(usuario);
         telefoneRepository.saveAll(usuario.getTelefones());
 
         Optional<Usuario> user = usuarioRepository.findById(usuario.getId());
-        if(user.isPresent()){
+        if (user.isPresent()) {
             return user.get();
         }
         return null;
     }
 
-    public List<Usuario> getTodosUsuarios(){
+    public List<Usuario> getTodosUsuarios() {
         List<Usuario> usuarios = usuarioRepository.findAll();
-        return  usuarios;
+        return usuarios;
     }
 
-    public Usuario getUsuario(Long id){
+    public Usuario getUsuario(Long id) {
         Optional<Usuario> usuario = usuarioRepository.findById(id);
-        if(usuario.isPresent()){
-            return  usuario.get();
+        if (usuario.isPresent()) {
+            return usuario.get();
         }
         return null;
 
     }
-    public Boolean existeUsuario(String email){
+
+    public Boolean existeUsuario(String email) {
         Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
         return usuario.isPresent();
 
