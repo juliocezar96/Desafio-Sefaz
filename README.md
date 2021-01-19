@@ -15,7 +15,7 @@
 
 • Testado com:
 
-- [Junit](https://junit.org/junit5/)
+- [JUnit](https://junit.org/junit5/)
 
 ## 💻 Projeto
 
